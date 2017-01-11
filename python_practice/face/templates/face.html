@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Python 开发人工智能扫一扫人脸识别系统【人工智能VR最新技术】- 强子老师</title>
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{background:#E6E6E6;font-size:12px;font-family:"微软雅黑";color:#666;}
+
+			/*h1 start*/
+			h1{line-height:80px;text-align:center;font-weight:300;color:#000000;}
+			/*end h1*/
+
+			/*banner start*/
+			.banner{width:100%;height:230px;background:url("{% static 'images/banner.jpg' %}") top center;background-repeat:no-repeat}
+			/*end banner*/
+
+			/*upload start*/
+			.upload{width:180px;height:36px;display:block;margin:30px auto;text-align:center;line-height:36px;text-decoration:none;font-size:16px;border-radius:20px;border:1px solid #00b4ff;color:#00b4ff;}
+			.upload:hover{background:#00b4ff;color:#ffffff;}
+			/*end upload*/
+
+			/*photo start*/
+			.photo{width:800px;height:460px;margin:0 auto;}
+			.photo .p_box{width:505px;height:460px;background:#ffcc99;float:left;position:relative;}
+			.photo .p_value{width:290px;height:460px;background:#ffffff;float:right;}
+			.photo .p_value h2{font-size:24px;font-weight:500;text-align:center;line-height:120px;}
+			.photo .p_value .p_info{font-size:16px;padding-left:35px;line-height:50px;}
+			/*end photo*/
+
+
+			@-webkit-keyframes renlian {
+				from {height: 5px;}
+				10% {height: 50px;}
+				40% {height: 100px;}
+
+				50% {height: 150px;
+				}
+
+				60% {
+					height: 250px;
+				}
+
+				80% {
+					height: 460px;
+				}
+				60% {
+					height: 250px;
+				}
+
+				50% {
+					height: 150px;
+				}
+
+				40% {
+					height: 100px;
+				}
+
+				10% {
+					height: 50px;
+				}
+				to {
+					height: 0px;
+				}
+			}
+			.scale {animation: renlian 1.5s infinite ease;-webkit-animation: renlian 1.5s infinite ease;}
+			.bs {position: absolute;background: green;width: 505px;height: 460px;top: 0px;left: 0px;font-size:36px;text-align:center;line-height:400px;color:#fff;opacity: 0.3}
+			#file,#filename{display:none;}
+
+
+		</style>
+
+	</head>
+<body>
+
+<!--h1 start-->
+<h1>Python开发人工智能扫一扫人脸识别系统</h1>
+<!--end h1-->
+
+<!--banner start-->
+<div class="banner"></div>
+<!--end banner-->
+
+<!--upload start-->
+<form action="/" method="post" enctype="multipart/form-data" id="arryForm">
+	<a href="javascript:;" class="upload" onclick="openBrows();">上传照片</a>
+	<input type="file" id="file" name="file" onchange="saveFile();"/>
+	<input type="text" id="filename" />
+</form>
+<!--end upload-->
+
+<!--photo start-->
+<div class="photo">
+	<div class="p_box">
+		<img src="urlpath|default:{% static 'images/qz.jpg' %}" id="path" alt="arry老师" width="505" />
+		<!--<img src="{{ picurl }}" id="path" alt="arry老师" width="505" />-->
+		<div class="bs scale"></div>
+	</div>
+	<div class="p_value">
+		<h2>人脸识别扫描结果：</h2>
+		<p class="p_info" id="p_message">
+
+		</p>
+	</div>
+</div>
+<!--end photo-->
+
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript">
+
+	// 点击按钮，浏览本地图片
+	function openBrows(){
+		var ie = navigator.appName == "Microsoft Internet Explorer" ? true:false;
+		if(ie){
+			document.getElementById("file").click();
+			document.getElementById("filename").value = document.getElementById("file").value;
+		} else {
+			var a = document.createEvent("MouseEvents");
+			a.initEvent("click",true,true);
+			document.getElementById("file").dispatchEvent(a);
+		}
+	}
+
+	// 提交表单
+	function saveFile(){
+		document.getElementById("arryForm").submit();
+	}
+
+	jQuery(function(){
+		faceDo();
+	});
+
+	function faceDo(){
+		var msg = jQuery("#path").attr("src");
+		jQuery.ajax({
+			type:"post",
+			url:"/",
+			data:{"path":msg},
+			success:function(data){
+				jQuery("#p_message").prepend(data);
+				jQuery(".bs").removeClass().empty();
+			}
+
+		});
+
+	}
+	
+
+</script>
+
+</body>
+</html>

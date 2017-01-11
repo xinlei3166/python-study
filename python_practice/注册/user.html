@@ -1,0 +1,20 @@
+$def with(username,cs)
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>用户管理操作</title>
+ </head>
+ <body>
+  <font color="red"><h2>尊敬的$:username,您已试用$:cs次，总共可免费使用3次。<p>下载费用：1元/次，请扫码下载</h2></font>
+  <form action="/user" method="post">
+      <input type="text" name="link" style="width:550px">
+      <input type="submit" value="下载资源">
+  </form>
+  <h3>请输入正确的高考资源网资源链接，如：http://www.ks5u.com/down/2017-1/6/2494788.shtml。<p>请前往官网<a href="http://www.ks5u.com/" target="_blank">http://www.ks5u.com/</a>选择需要的文档进行下载。</h3>
+ </body>
+</html>
