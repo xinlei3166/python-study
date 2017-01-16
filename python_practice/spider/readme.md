@@ -14,7 +14,6 @@ http.cookiejar模块的主要作用是提供可存储cookie的对象, 以便与u
 使用来访问Internet资源.**
 CookieJar类的对象来捕获cookie并在后续连接请求时重新发送, 比如可以实现模拟登录功能.
 该模块主要的对象有CookieJar, FileCookie, MozillaCookieJar, LWPCookieJar.
-
 **urllib**
 该模块包含urllib.request, urllib.parse
 urllib.request.urlencode()用来编码

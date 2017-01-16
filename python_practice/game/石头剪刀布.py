@@ -4,7 +4,7 @@ import random
 import sys
 
 #游戏规则
-winlist = [['石头','剪刀'],['剪刀','布'],['布','石头']]	
+winlist = [['石头','剪刀'],['剪刀','布'],['布','石头']]
 #选择列表
 choicelist = ['石头','剪刀','布']
 #用户提示
@@ -40,4 +40,3 @@ while True:
 		print('输入错误, 请重新输入')
 		# sys.exit()
 		pass
-
