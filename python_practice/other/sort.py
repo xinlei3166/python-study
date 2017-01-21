@@ -3,10 +3,24 @@
 __author__ = 'junxi'
 
 
-list1 = [8999, 1, 33, 44, 7667, 33, 644546, 2, 4444, 65, 43]
 
-
+list1 = [42, 20, 17, 13, 28, 14, 23, 15]
 # 插入排序
+# def insert_sort(lists):
+# 	# 列表长度
+# 	count = len(lists)
+# 	for i in range(1, count):    # 100 1-99 0-99
+# 		key = lists[i]  # i指列表下表
+# 		j = i - 1
+# 		while j >= 0:
+# 			if lists[j] > key:
+# 				lists[j + 1] = lists[j]
+# 				lists[j] = key
+# 			j -= 1
+# 	return lists
+#
+# print('插入排序结果：', insert_sort(list1))
+
 def insert_sort(lists):
 	# 列表长度
 	count = len(lists)
@@ -14,7 +28,7 @@ def insert_sort(lists):
 		key = lists[i]  # i指列表下表
 		j = i - 1
 		while j >= 0:
-			if lists[j] > key:
+			if key < lists[j]:
 				lists[j + 1] = lists[j]
 				lists[j] = key
 			j -= 1
@@ -23,6 +37,8 @@ def insert_sort(lists):
 print('插入排序结果：', insert_sort(list1))
 
 
+
+list2 = [59, 20, 17, 13, 28, 14, 23, 83]
 # 希尔排序
 def shell_sort(lists):
 	count = len(lists)
@@ -46,5 +62,8 @@ def shell_sort(lists):
 		group = int(group / step)
 	return lists
 
-print('希尔排序结果：', shell_sort(list1))
+print('希尔排序结果：', shell_sort(list2))
+
+
+
 
