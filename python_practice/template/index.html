@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block title %}
+        <title>首页</title>
+    {% endblock %}
+    <link rel="stylesheet" href="/static/css/uikit.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <script src="/static/js/uikit.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    {% block head_js %}
+    {% endblock %}
+</head>
+<body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="#">Primumest</a>
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="{{ url('Index') }}">首页</a></li>
+                <li>
+                    <a href="#">编程语言</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">python</a></li>
+                            <li><a href="#">go</a></li>
+                            <li><a href="#">c</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{ url('Questions') }}">问答</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right content">
+            <div class="uk-navbar-item">
+                <form class="uk-search uk-search-default">
+                    <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                    <input class="uk-input uk-form-width-smal" type="search" placeholder="Search">
+                </form>
+            </div>
+            <ul class="uk-navbar-nav">
+                {% if app.userdata %}
+                    <li><a href="#" class="uk-text-success">{{ app.userdata.name }}</a></li>
+                {% else %}
+                    <li class="uk-active"><a href="{{ url('Login') }}">登录</a></li>
+                    <li><a href="{{ url('Register') }}">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+    {% block bottom_js %}
+    {% endblock %}
+</body>
+</html>

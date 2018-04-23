@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>登录</title>
+{% endblock %}
+
+{% block head_js %}
+{% endblock %}
+
+{% block content %}
+    <div class="uk-container content">
+        <form class="uk-form register-box uk-text-center" method="post" action="{{ url('Login') }}" style="margin-top: 2rem;">
+            <div class="uk-form-row">
+                <input type="text" name="account" placeholder="请输入邮箱或手机号" class="uk-width-1-5 uk-form-small">
+            </div>
+            <div class="uk-form-row">
+                <input type="password" name="password" placeholder="请输入你的密码" class="uk-width-1-5 uk-form-small">
+            </div>
+            <button type="submit" class="uk-width-1-5 uk-button-primary uk-button-small">提交</button>
+            {% if msg %}
+                <p class="uk-text-danger">{{ msg.error_msg }}</p>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block bottom_js %}
+
+{% endblock %}
