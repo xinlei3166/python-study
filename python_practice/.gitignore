@@ -1,0 +1,26 @@
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+*$py.class
+dist
+build
+__pycache__
+migrations
+!migrations/__init__.py
+
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints
+# Pycharm
+.idea
