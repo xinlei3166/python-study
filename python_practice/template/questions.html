@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>问答</title>
+{% endblock %}
+
+{% block head_js %}
+{% endblock %}
+
+{% block content %}
+    <div class="uk-container content">
+        <div class="uk-child-width-1-2@s" uk-grid>
+            {% for question in questions %}
+                <div>
+                    <div class="uk-dark uk-background-muted uk-padding">
+                        <h3 class="uk-text-danger">{{ question.question_text }}</h3>
+                        {% for i in question.question_choice|choice_split %}
+                            <p><label><input class="uk-radio" type="radio" name="radio2" value="{{ i.0 }}"> {{ i.1 }}</label></p>
+                        {% endfor %}
+                        <button class="uk-button-primary uk-button-small">提交</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_js %}
+
+{% endblock %}

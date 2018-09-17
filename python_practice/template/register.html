@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>注册</title>
+{% endblock %}
+
+{% block head_js %}
+{% endblock %}
+
+{% block content %}
+    <div class="uk-container content">
+        <form class="uk-form register-box" method="post" action="{{ url('Register') }}">
+            <fieldset style="width: 25%; padding: 1rem 0 1rem 5rem">
+                <legend style="text-align: center">注册账号</legend>
+                <div class="uk-form-row">
+                    <span class="uk-form-label">昵称 </span>
+                    <input type="text" name="name" placeholder="请输入你的名字" class="uk-width-1-2 uk-form-small">
+                </div>
+                <div class="uk-form-row">
+                    <span class="uk-form-label">邮箱 </span>
+                    <input type="text" name="email" placeholder="请输入你的邮箱" class="uk-width-1-2 uk-form-small">
+                </div>
+                <div class="uk-form-row">
+                    <span class="uk-form-label">手机 </span>
+                    <input type="text" name="phone" placeholder="请输入你的手机号" class="uk-width-1-2 uk-form-small">
+                </div>
+                <div class="uk-form-row">
+                    <span class="uk-form-label">密码 </span>
+                    <input type="password" name="password" placeholder="请输入你的密码" class="uk-width-1-2 uk-form-small">
+                </div>
+                <button type="submit" class="uk-button-primary">提交</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
